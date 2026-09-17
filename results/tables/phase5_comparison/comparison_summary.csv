@@ -1,0 +1,6 @@
+Cluster,Final_Tech_ClusterOnly,Final_Tech_RuleOnly,Combustion,Pyrolysis,Gasification
+0.0,Combustion,Pyrolysis,1,0,0
+1.0,Pyrolysis,Pyrolysis,0,107,0
+2.0,Further Assessment Needed,Further Assessment Needed,0,2,6
+2.0,Further Assessment Needed,Gasification,0,1,0
+2.0,Further Assessment Needed,Pyrolysis,0,1,0

@@ -1,0 +1,38 @@
+{
+    "selected_basis": "dry_basis (db)",
+    "rationale": "Minimizes moisture distortion and multicollinearity",
+    "retained_features": [
+        "Sample_ID",
+        "Biomass_Type",
+        "Class",
+        "Subclass",
+        "Ash_db",
+        "VM_db",
+        "FC_db",
+        "C_db",
+        "H_db",
+        "N_db",
+        "S_db",
+        "O_db",
+        "CV_MJ/kg_db",
+        "Na2O",
+        "MgO",
+        "Al2O3",
+        "SiO2",
+        "P2O5",
+        "K2O3",
+        "CaO",
+        "TiO2",
+        "Mn3O4",
+        "Fe2O3",
+        "Other",
+        "State",
+        "Longitude",
+        "Latitude"
+    ],
+    "dropped_bases": [
+        "ar",
+        "ad",
+        "daf"
+    ]
+}

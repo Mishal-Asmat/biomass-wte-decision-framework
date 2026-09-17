@@ -1,0 +1,100 @@
+{
+    "variable_groups": {
+        "identifiers": [
+            "Sample_ID",
+            "SSC_NAME16",
+            "STE_NAME16",
+            "Longitude",
+            "Latitude"
+        ],
+        "text": [
+            "Short_Description",
+            "Full_Description",
+            "Notes",
+            "Location_Notes",
+            "Analysis_Note_1",
+            "Source"
+        ],
+        "categorical": [
+            "Biomass_Type",
+            "Class",
+            "Subclass",
+            "State"
+        ],
+        "proximate_analysis": [
+            "Moist_ar",
+            "Moist_ad",
+            "Ash_ar",
+            "Ash_ad",
+            "Ash_db",
+            "VM_ar",
+            "VM_ad",
+            "VM_db",
+            "VM_daf",
+            "FC_ar",
+            "FC_ad",
+            "FC_db",
+            "FC_daf"
+        ],
+        "ultimate_analysis": [
+            "C_ar",
+            "C_ad",
+            "C_db",
+            "C_daf",
+            "H_ar",
+            "H_ad",
+            "H_db",
+            "H_daf",
+            "N_ar",
+            "N_ad",
+            "N_db",
+            "N_daf",
+            "S_ar",
+            "S_ad",
+            "S_db",
+            "S_daf",
+            "O_ar",
+            "O_ad",
+            "O_db",
+            "O_daf",
+            "Cl_mg/kg_ar",
+            "Cl_mg/kg_ad",
+            "Cl_mg/kg_db",
+            "Cl_mg/kg_daf"
+        ],
+        "hhv_energy_content": [
+            "CV_MJ/kg_ar",
+            "CV_MJ/kg_ad",
+            "CV_MJ/kg_db",
+            "CV_MJ/kg_daf",
+            "CV_kcal/kg_ar",
+            "CV_kcal/kg_ad",
+            "CV_kcal/kg_db",
+            "CV_kcal/kg_daf"
+        ],
+        "mineral_ash_composition": [
+            "Na2O",
+            "MgO",
+            "Al2O3",
+            "SiO2",
+            "P2O5",
+            "K2O3",
+            "CaO",
+            "TiO2",
+            "Mn3O4",
+            "Fe2O3",
+            "Other"
+        ]
+    },
+    "missing_columns": {
+        "identifiers": [],
+        "text": [],
+        "categorical": [],
+        "proximate_analysis": [],
+        "ultimate_analysis": [],
+        "hhv_energy_content": [],
+        "mineral_ash_composition": []
+    },
+    "n_samples": 135,
+    "n_features": 79
+}

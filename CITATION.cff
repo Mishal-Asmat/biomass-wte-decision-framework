@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software or its methodology, please cite it
+  using the metadata below.
+title: >-
+  Biomass Waste-to-Energy (WtE) Decision Framework: A Hybrid
+  Clustering and Rule-Based Approach to Thermochemical Conversion
+  Technology Selection
+authors:
+  - given-names: Mishal
+    family-names: Asmat
+repository-code: 'https://github.com/Mishal-Asmat/biomass-wte-decision-framework'
+abstract: >-
+  A reproducible data-science pipeline that combines unsupervised
+  fuel-typology clustering (KMeans) with literature-aligned
+  thermochemical process-suitability rules to recommend
+  waste-to-energy conversion technologies (combustion,
+  gasification, pyrolysis) for characterized biomass and waste
+  fuel samples. Includes data validation, analytical basis
+  harmonization, engineered fuel-quality indices, cluster
+  explainability via Random Forest feature importance, and a
+  disagreement/interpretability audit comparing cluster-only,
+  rule-only, and hybrid decision frameworks.
+keywords:
+  - bioenergy
+  - waste-to-energy
+  - biomass
+  - thermochemical conversion
+  - unsupervised clustering
+  - decision support system
+  - process suitability
+license: MIT
+date-released: '2026-09-18'
