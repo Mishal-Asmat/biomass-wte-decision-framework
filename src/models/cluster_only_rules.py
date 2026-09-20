@@ -1,17 +1,16 @@
 """
 Cluster-only technology decision baseline.
 
-Answers: if only the fuel-typology cluster is known (ignoring chemistry
-and process-suitability rules entirely), which conversion technology
-would be selected? Used as a comparison baseline against the rule-only
-and hybrid decision frameworks (Phase 5).
+Which conversion technology would be selected if only fuel-typology cluster is known?
+Also used as comparison baseline against rule only and hybrid decision frameworks.
+
 """
 
 import pandas as pd
 
 
 def assign_cluster_only_decision(df: pd.DataFrame) -> pd.DataFrame:
-    """Assign a technology purely from cluster identity (Phase 4 typology)."""
+    """Assign a technology depending entirely on cluster identity"""
     df = df.copy()
 
     def decision_logic(cluster):

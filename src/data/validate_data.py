@@ -1,11 +1,9 @@
 """
-Variable categorization and dataset validation.
+Categorization of variables and validation of dataset.
 
-Splits the raw dataset's 79 columns into semantically meaningful
-groups (identifiers, text, categorical, proximate/ultimate analysis,
-HHV, ash-mineral composition) and exports a machine-readable audit
-trail (``variable_categorization.json``) documenting the schemes and
-confirming no expected columns are missing.
+Divides the 79 columns of raw dataset into meaningful groups (identifiers, text, categorical, proximate/ultimate analysis,
+HHV, ash-mineral composition) and exports the output file (``variable_categorization.json``) with no missing columns
+
 """
 
 import json
@@ -49,8 +47,8 @@ ash_mineral_vars = [
 
 def validate_and_categorize(df: pd.DataFrame, output_path: str) -> dict:
     """
-    Categorize dataset variables into semantic groups and export
-    a metadata report describing schema completeness.
+    Categorization of dataset variables into groups and export
+    a metadata report.
 
     Parameters
     ----------

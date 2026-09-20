@@ -1,4 +1,4 @@
-"""Fit the final KMeans fuel-typology clustering model."""
+"""Fit the KMeans fuel-typology clustering model."""
 
 import numpy as np
 import pandas as pd
@@ -36,20 +36,16 @@ def run_kmeans(X, n_clusters=3):
 
 def canonicalize_cluster_labels(labels, sort_series: pd.Series) -> np.ndarray:
     """
-    Remap arbitrary KMeans integer labels to a fixed, physically
+    Remapping of random KMeans integer labels into a fixed, physically
     meaningful ordering.
 
-    KMeans assigns cluster indices (0, 1, 2, ...) based on internal
-    centroid-discovery order, which is **not** guaranteed to be stable
-    across runs, scikit-learn versions, or even minor changes to the
-    input feature matrix (e.g., whether a spurious identifier column is
-    accidentally included). Downstream rule-based modules in this
-    project (``cluster_only_rules.py``, ``wte_conversion_rules.py``)
-    hardcode technology decisions per literal cluster index, assuming a
-    fixed semantic ordering (Cluster 0 = lowest ash / most stable,
-    Cluster 2 = highest ash / most constrained). This function enforces
-    that ordering explicitly and deterministically, by relabeling
-    clusters according to ascending mean of ``sort_series`` (Ash_db).
+    the cluster indices (0, 1, 2, ...) assigned via KMeans is based on internal centre point which
+    could not provide stable outcomes across runs, streamlit verisons or minor changes in input 
+    feature matrix (e.g inclusion of identifier column). Downstream rule-based modules 
+    (``cluster_only_rules.py``, ``wte_conversion_rules.py``) use particular technology decisions for 
+    each cluster, with fixed ordering (Cluster 0 = lowest ash / most stable, Cluster 2 = highest ash / 
+    most constrained). It ensures the explicit ordering by re-labelling clusters according to increasing
+    mean of ``sort_series`` (Ash_db).
 
     Parameters
     ----------
@@ -57,7 +53,7 @@ def canonicalize_cluster_labels(labels, sort_series: pd.Series) -> np.ndarray:
         Raw KMeans integer labels.
     sort_series : pd.Series
         The variable to rank cluster means by (indexed identically to
-        ``labels``); ``Ash_db`` is used throughout this project.
+        ``labels``); ``Ash_db`` throughout this project.
 
     Returns
     -------

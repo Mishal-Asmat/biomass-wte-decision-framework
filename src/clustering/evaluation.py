@@ -1,4 +1,4 @@
-"""Select the number of clusters (k) via inertia (elbow) and silhouette score."""
+"""Selection of the number of clusters (k) via inertia (elbow) and silhouette score."""
 
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
@@ -7,8 +7,7 @@ from sklearn.metrics import silhouette_score
 def evaluate_k_range(X, k_range=range(2, 8)):
     """
     Fit KMeans across a range of ``k`` values and record inertia
-    (within-cluster compactness) and silhouette score (between-cluster
-    separation quality) for each, to support elbow-point selection.
+    and silhouette score for each, to select elbow-point.
 
     Parameters
     ----------

@@ -1,12 +1,10 @@
 """
-Analytical basis harmonization.
+Harmoniation of analytical basis.
 
-The raw dataset reports proximate/ultimate/HHV variables on up to four
-analytical bases (as-received "ar", air-dried "ad", dry "db", and
-dry-ash-free "daf"). To avoid multicollinearity and moisture-driven
-distortion when comparing fuels, this module reduces the dataset to a
-single canonical dry-basis ("db") representation, which best isolates
-intrinsic fuel chemistry from handling/storage conditions.
+The raw dataset contains proximate/ultimate/HHV variables with 4 different bases (as-received "ar", air-dried "ad", dry "db", and
+dry-ash-free "daf"). To avoid issues of multicollinearity and moisture distortion, a single canonical dry-basis ("db") is selected
+which best represents the intrinsic properties of fuel. 
+
 """
 
 import json
@@ -28,8 +26,8 @@ canonical_columns = [
 def harmonize_to_db_basis(df: pd.DataFrame, output_csv: str, meta_path: str) -> pd.DataFrame:
     """
     Reduce the validated dataset to dry-basis canonical variables and
-    persist both the harmonized dataset and the modeling-decision
-    metadata that documents the rationale.
+    keep both the harmonized dataset and the modeling-decision
+    metadata.
 
     Parameters
     ----------

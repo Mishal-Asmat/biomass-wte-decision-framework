@@ -1,10 +1,9 @@
 """
-Central reference for column groupings used throughout the pipeline.
+Reference used throughout the pipeline for column grouping.
 
-This module is documentation-as-code: it does not transform data, it
-simply names which raw / engineered columns belong to which conceptual
-group so that feature selection choices in the notebooks are explicit
-and reusable rather than re-typed in every phase.
+It simply names which raw/engineered columns belong to which group,
+to create clean choices of features selsction inthe nootbooks
+
 """
 
 # --- Raw measured variables (dry basis, "_db") ---------------------------
@@ -13,8 +12,8 @@ moisture_ar = ["Moist_ar"]                           # As-received moisture (sys
 ultimate_db = ["C_db", "H_db", "N_db", "S_db", "O_db"]  # Ultimate analysis
 hhv_db = ["CV_MJ/kg_db"]                             # Higher heating value
 
-# Ash-forming oxides, split by process relevance
-primary_ash_oxides = [                               # Process-critical (slagging/fouling/ash fusion)
+# Ash-forming oxides, divided according to process relevance
+primary_ash_oxides = [                               # Process-critical oxides (slagging/fouling/ash fusion)
     "Na2O", "K2O3", "CaO", "MgO",
     "SiO2", "Al2O3", "Fe2O3"
 ]

@@ -1,14 +1,13 @@
 """
-Engineered fuel-quality indices.
+Engineered fuel-quality indicators.
 
 Two categories of engineered features are produced:
 
 1. Intrinsic, dry-basis fuel-chemistry indicators (energy density,
-   reactivity, combustibility) that depend only on lab-measured
-   proximate/ultimate/HHV data.
-2. A system-level moisture penalty that reintroduces as-received
-   moisture *without* contaminating the dry-basis chemistry used
-   elsewhere in the pipeline.
+   reactivity, combustibility) that depend only on lab-measured data
+   (proximate/ultimate/HHV).
+2. A system-level moisture penalty that is reintroduced 'as-received
+   moisture' without compromising the chemistry of dry-basis.
 """
 
 import pandas as pd
@@ -16,7 +15,7 @@ import pandas as pd
 
 def add_energy_reactivity_features(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Add intrinsic fuel-quality indicators computed on a dry basis.
+    Add intrinsic fuel-quality indicators calculated on a dry basis.
 
     Adds
     ----
@@ -41,8 +40,8 @@ def add_energy_reactivity_features(df: pd.DataFrame) -> pd.DataFrame:
 def add_moisture_penalty(df_engineered: pd.DataFrame, df_validated: pd.DataFrame) -> pd.DataFrame:
     """
     Add a system-level moisture penalty and effective (moisture-adjusted)
-    HHV, sourced from the validated (pre-harmonization) dataset so that
-    dry-basis chemistry elsewhere remains uncontaminated.
+    HHV which is sourced from validated (pre-harmonization) dataset to avoid
+    contamination to dry basis chemistry anywhere else in pipeline.
 
     Adds
     ----

@@ -1,11 +1,11 @@
-"""Ash-chemistry-based operational risk indicators (slagging/fouling)."""
+"""Operational risk indicators based on ash-chemistry (slagging/fouling)."""
 
 import pandas as pd
 
 
 def add_ash_risk_indicators(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Add ash-chemistry-based operational risk indicators.
+    Add operational risk indicators based on ash-chemistry.
 
     Adds
     ----

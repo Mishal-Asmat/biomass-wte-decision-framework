@@ -2,9 +2,8 @@
 Unit tests for ``src.features.feature_engineering`` and
 ``src.features.risk_indicators``.
 
-Verifies the engineered fuel-quality formulas against hand-computed
-expected values, and checks the directional behavior of the moisture
-penalty (should decrease monotonically as moisture increases).
+Verification of engineered formulas of fuel-quality against the calculated
+expected values, and checking of moisture penalty behavior (should decrease as moisture increases).
 """
 
 import numpy as np
@@ -123,23 +122,17 @@ def test_base_acid_ratio_formula(ash_df):
     pd.testing.assert_series_equal(result["Base_Acid_Ratio"], expected, check_names=False)
 
 
-# --- Cluster label canonicalization -----------------------------------------
-# Regression test for a real bug found while auditing this pipeline: sklearn's
-# KMeans assigns integer cluster labels in an arbitrary, non-semantic order,
-# but src.models.cluster_only_rules / wte_conversion_rules hardcode technology
-# decisions per literal cluster index, assuming Cluster 0 = lowest ash and
-# Cluster 2 = highest ash. canonicalize_cluster_labels() must enforce that
-# ordering regardless of the raw label KMeans happened to assign.
+# --- Canonicalization of cluster label -----------------------------------------
+# Becausse it is found that KMeans assigned clusters random numbers, but decision rules have
+# fixed meaning of those numbers. So, this test guards the particular step of forcing the 
+# numbering to always mean the same  
 
 def test_canonicalize_cluster_labels_orders_by_ascending_mean():
-    # Raw KMeans labels are "backwards": raw label 0 has the highest Ash_db,
-    # raw label 2 has the lowest.
     raw_labels = [0, 0, 1, 1, 2, 2]
     ash_db = pd.Series([30.0, 32.0, 15.0, 17.0, 2.0, 3.0])
 
     result = canonicalize_cluster_labels(raw_labels, ash_db)
 
-    # Lowest-ash group (raw label 2) must become canonical label 0, and so on.
     assert list(result[:2]) == [2, 2]
     assert list(result[2:4]) == [1, 1]
     assert list(result[4:6]) == [0, 0]
@@ -151,7 +144,6 @@ def test_canonicalize_cluster_labels_is_a_relabeling_not_a_reordering():
 
     result = canonicalize_cluster_labels(raw_labels, ash_db)
 
-    # Same 3 groups, same row order and group sizes -- only the label
-    # identities may change.
+    # All 3 groups are same only the label identities may change.
     assert len(result) == len(raw_labels)
     assert len(set(result)) == 3

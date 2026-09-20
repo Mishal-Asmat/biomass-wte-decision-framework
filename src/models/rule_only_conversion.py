@@ -1,18 +1,17 @@
 """
 Rule-only technology decision baseline.
 
-Answers: is this specific technology chemically/physically suitable or
-not, using only the Phase 4A Primary_Process / Constraint_Level output
-and ignoring cluster (fuel-typology) information entirely? Only the
-single best-suited condition is used (no secondary/moderate fallback),
-otherwise this would collapse into the hybrid framework.
+Which specific technology is suitable based on Primary_Process and Constraint_Level 
+outputs (phase 4A) only avoiding cluster infromtion? Avoid Secondary_Process and give
+single best technology. It is done to avoid collapse of hybrid framework. 
+
 """
 
 import pandas as pd
 
 
 def assign_rule_only_conversion(df: pd.DataFrame) -> pd.DataFrame:
-    """Assign a technology purely from process-suitability rules (Phase 4A)."""
+    """Assign a technology depedning only on process-suitability rules."""
     df = df.copy()
 
     def decision_logic(row):

@@ -1,4 +1,4 @@
-"""KMeans clustering diagnostic and result visualizations."""
+"""KMeans clustering analysis and visualization of results."""
 
 import matplotlib.pyplot as plt
 import pandas as pd

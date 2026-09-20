@@ -1,4 +1,4 @@
-"""Phase 6A - Disagreement / decision-interpretability visualizations."""
+"""Phase 6A - Disagreement interpretability visualizations."""
 
 import os
 from math import pi
@@ -22,7 +22,7 @@ def plot_boxplots(df, features, output_dir):
 
 
 def plot_violinplots(df, features, output_dir):
-    """Violin plot of each feature's distribution within the disagreement conflict space."""
+    """Violin plot of distribution of each feature within the disagreement conflict range."""
     os.makedirs(output_dir, exist_ok=True)
 
     for feature in features:
@@ -38,7 +38,7 @@ def plot_violinplots(df, features, output_dir):
 
 
 def plot_scatter_boundary(df, x_feature, y_feature, output_path):
-    """Scatter plot of two features, colored by final technology, to expose boundary conflicts."""
+    """Scatter plot of two features, colored by final technology, to show boundary conflicts."""
     plt.figure(figsize=(7, 5))
     sns.scatterplot(
         data=df, x=x_feature, y=y_feature,
@@ -51,7 +51,7 @@ def plot_scatter_boundary(df, x_feature, y_feature, output_path):
 
 
 def plot_radar_chart(df, features, output_path):
-    """Radar (spider) chart of median feature values per final technology ('fingerprints')."""
+    """Radar chart of median feature values per final technology."""
     grouped = df.groupby("Final_Conversion_Technology")[features].median()
 
     labels = features

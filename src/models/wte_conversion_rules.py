@@ -2,9 +2,9 @@
 Phase 4C - Cluster-informed hybrid WtE conversion decision framework.
 
 Combines cluster identity (Phase 4), process suitability (Phase 4A),
-and constraint level into a single final conversion-technology
-recommendation. This is the "production" decision layer compared
-against the cluster-only and rule-only baselines in Phase 5.
+and constraint level into a final conversion-technology recommendation. 
+This decision layer is compared against the cluster-only and rule-only 
+baselines in Phase 5.
 """
 
 import pandas as pd

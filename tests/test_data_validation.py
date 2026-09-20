@@ -1,8 +1,8 @@
 """
 Unit tests for ``src.data.validate_data``.
 
-Covers: correct variable grouping, missing-column detection, and
-correct dataset-shape reporting in the exported metadata.
+It covers correction of variable grouping, detection of missing-column, and
+correction in reporting dataset-shape (exported metadata).
 """
 
 import json
@@ -85,5 +85,5 @@ def test_variable_groups_are_disjoint_where_expected(complete_df, tmp_path):
     metadata = validate_and_categorize(complete_df, str(output_path))
     groups = metadata["variable_groups"]
 
-    # identifiers and categorical variables should never overlap
+    # to avoid overlapping of identifiers and categorical variables
     assert set(groups["identifiers"]).isdisjoint(set(groups["categorical"]))

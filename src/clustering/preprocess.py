@@ -5,9 +5,9 @@ from sklearn.preprocessing import StandardScaler
 
 def scale_features(df):
     """
-    Standardize clustering features to zero mean / unit variance so
-    that variables measured in different units (e.g. MJ/kg vs. %)
-    contribute to distance calculations without bias.
+    Clustering features are standardized to zero mean/unit variance to avoid
+    distance calculation bias when variables with different units (e.g. MJ/kg 
+    vs. %) are used for measurement. 
 
     Returns
     -------

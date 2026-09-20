@@ -1,9 +1,9 @@
 """
 Phase 4A - Process/technology suitability rules.
 
-Assigns graded (primary / secondary / constraint-level) thermochemical
-process recommendations from engineered physicochemical features using
-literature-aligned thresholds, independent of any ML predictions.
+Used literature based thresholds on engineered features to assign graded
+thermochemical process recommendations (primary / secondary / constraint-level)
+
 """
 
 import pandas as pd
@@ -25,7 +25,7 @@ def assign_processes(row: pd.Series) -> pd.Series:
     ):
         possible_processes.append("Pyrolysis")
 
-    # Gasification: VM in the moderate-high operating window, ash within limits
+    # Gasification: VM in the moderate-high operating range, ash within limits
     if (
         thresholds["gasification"]["VM_min"] <= row["VM_db"] <= thresholds["gasification"]["VM_max"] and
         row["Ash_db"] <= thresholds["gasification"]["Ash_max"]
@@ -40,7 +40,7 @@ def assign_processes(row: pd.Series) -> pd.Series:
     ):
         possible_processes.append("Combustion")
 
-    # Pre-treatment flag: hard constraint indicator, independent of process fit
+    # Pre-treatment: hard constraint indicator, independent of process fit
     requires_pretreatment = (
         row["Ash_db"] >= thresholds["pretreatment"]["Ash_max"] or
         row["Moist_ar"] >= thresholds["pretreatment"]["Moisture_max"]

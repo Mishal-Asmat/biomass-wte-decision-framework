@@ -1,12 +1,11 @@
 """
 Phase 5 - Decision comparison plots.
 
-``plot_decision_flow`` in particular answers three questions at a
-glance: (1) does the hybrid framework track cluster logic or rule
-logic more closely; (2) where do the three decision frameworks
-diverge; and (3) which clusters are decision-stable (a single
-dominant technology) versus decision-ambiguous (a mixed distribution
-of technologies).
+It handles 3 questions (1) hybrid framework follows cluster logic or 
+rule logic more closely; (2) where do the three frameworks differ; (3) 
+Which clusters show stable decisions (a single dominant technology) vs 
+clusters with unceertain decisions (a mixed distribution of technologies).
+
 """
 
 import pandas as pd
@@ -59,7 +58,7 @@ def plot_agreement_rates(agreement_df, output_path):
 
 
 def plot_decision_flow(df, output_path):
-    """Stacked bar chart of technology counts per cluster, per decision framework."""
+    """Stacked bar chart of technology counts per cluster for each decision framework."""
     flow = (
         df.groupby("Cluster")[
             [
