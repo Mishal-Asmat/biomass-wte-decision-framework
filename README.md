@@ -1,18 +1,18 @@
 # Biomass Waste-to-Energy (WtE) Decision Framework
 
-A reproducible data-science pipeline that converts the laboratory databse of biomass or waste
+A reproducible data-science pipeline that converts the laboratory database of biomass or waste
 fuel into an interpretable and defensible **conversion
 technology recommendation** (combustion, gasification, or pyrolysis) for
 each sample by combining unsupervised fuel-typology clustering with
-literature based thermochemical process-suitability rules.
+literature-based thermochemical process-suitability rules.
 
 It is built on 135 characterized Australian biomass and waste fuel samples
 (proximate/ultimate analysis, higher heating value, and ash-mineral
 composition). It handles three questions:
 
 1. **What *is* this fuel?** : data-driven fuel typology via unsupervised clustering, independent of `Biomass_Type` labels.
-2. **What *can* this fuel do?** : literature based thermochemical process-suitability analysis (VM/FC/Ash/moisture/alkali thresholds).
-3. **What *should* be build?** : a hybrid decision layer combining (1) as cluter-only and (2) as rule-only baselines, and a full disagreement/interpretability analysis of where and why the frameworks disagree.
+2. **What *can* this fuel do?** : literature-based thermochemical process-suitability analysis (VM/FC/Ash/moisture/alkali thresholds).
+3. **What *should* be build?** : a hybrid decision layer combining (1) as cluster-only and (2) as rule-only baselines, and a full disagreement/interpretability analysis of where and why the frameworks disagree.
 
 ---
 
@@ -38,7 +38,7 @@ composition). It handles three questions:
 |---|---|---|---|
 | 1 | `01_data_audit.ipynb` | Is the raw dataset complete and well arranged? | `data/interim/validated_data.csv` |
 | 2 | `02_basis_harmonization.ipynb` | Which analytical basis out of all best represents intrinsic fuel chemistry? | `data/interim/harmonized_db_basis.csv` (dry basis) |
-| 3 | `03_feature_engineering.ipynb` | Which indices explains reactivity, energy intensity, and ash risk? | `data/interim/engineered_features.csv` |
+| 3 | `03_feature_engineering.ipynb` | Which indices explain reactivity, energy intensity, and ash risk? | `data/interim/engineered_features.csv` |
 | 4 | `04_clustering_analysis.ipynb` | Do fuels separate into physically meaningful clusters? | KMeans fuel type (k = 3) |
 | 4A | `04a_process_suitability.ipynb` | Which processes are chemically/physically feasible for each sample? | Primary/Secondary process + constraint level |
 | 4B | `04b_cluster_explainability.ipynb` | Which properties drive the cluster separation? | Random Forest feature importance |
@@ -60,7 +60,7 @@ biomass-wte-decision-framework/
 ├── notebooks/                   
 ├── src/
 │   ├── config/                  # thresholds & column-grouping
-│   ├── data/                    # load / validate / harmonize basis
+│   ├── data/                    # load / validate/harmonize basis
 │   ├── features/                # engineered fuel-quality + ash-risk indicators
 │   ├── clustering/               # scaling, KMeans, k-selection, label canonicalization
 │   ├── models/                  # process-suitability & conversion-technology decision rules
@@ -92,12 +92,12 @@ biomass-wte-decision-framework/
   Further Assessment Needed (17), Gasification (6), Combustion (1).
 
 - **Agreement (%) among frameworks:** cluster-only vs. rule-only (90.4%), rule-only vs.
-  hybrid (85.2%), cluster-only vs. hybrid (92.6%). Overall,frameworks agree
+  hybrid (85.2%), cluster-only vs. hybrid (92.6%). Overall, frameworks agree
   on the dominant fuel population. Disagreement is revealed only in the
   small high-ash (Cluster 2) subgroup.
 
-- **Cluster separation is majorly driven  by energy density and ash
-  chemistry** (Random Forest feature importance, Phase 4B) however moisture and
+- **Cluster separation is mainly driven  by energy density and ash
+  chemistry** (Random Forest feature importance, Phase 4B) however, moisture and
   raw calorific value has secondary roles.
 
 ## Getting started
@@ -132,8 +132,8 @@ Run the notebooks in order from the `notebooks/` folder
 streamlit run app/app.py
 ```
 
-Shows the choosen filters final decision table by biomass class and fuel cluster. It also
-shows technology distributions, cluster-vs-technology crosstabs, and the feature profiles of recommended technology whose decision is obtained acoording to selected filters.
+Shows the chosen filters final decision table by biomass class and fuel cluster. It also
+shows technology distributions, cluster-vs-technology crosstabs, and the feature profiles of the recommended technology whose decision is obtained according to selected filters.
 
 ## Testing
 
@@ -185,7 +185,7 @@ repository, for transparency:
    `04b_cluster_explainability.ipynb` notebook.
 
 5. **`tests/test_data_validation.py` and `tests/test_feature_engineering.py`
-both contain real pytest suites.
+Both contain real pytest suites.
 
 ## License
 
